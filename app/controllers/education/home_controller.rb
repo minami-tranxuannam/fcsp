@@ -5,6 +5,6 @@ class Education::HomeController < Education::BaseController
     @learning_programs = Education::LearningProgram
       .limit(Settings.education.index.max_learning_program)
     @trainings = Education::Training.newest.includes(:techniques)
-      .limit(Settings.education.home.trainings_limit)
+      .limit(Settings.home_trainings_limit)
   end
 end

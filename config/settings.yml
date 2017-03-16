@@ -8,9 +8,8 @@ education:
     max_learning_program_desc: 150
     max_learning_program_name: 20
     max_learning_program: 3
-  home:
-    trainings_limit: 8
   trainings:
     per_page: 5
 home:
   limit: 8
+home_trainings_limit: 8
