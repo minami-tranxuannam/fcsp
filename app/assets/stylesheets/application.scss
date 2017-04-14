@@ -15,9 +15,12 @@
  *= require_tree ./education
  *= require sweetalert2
  *= require_self
+ *= require company_info
+ *= require job
  *= require custom
  *= require company_info
  *= require job
+ *= require company_chat_messages
  *= require user
  *= require friend_ships
  *= require info_users

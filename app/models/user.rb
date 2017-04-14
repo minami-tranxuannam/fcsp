@@ -44,6 +44,17 @@ class User < ApplicationRecord
   has_one :group, class_name: Group.name, through: :user_group, source: :group
   has_one :company, through: :user_group, source: :company,
     class_name: Company.name
+  has_many :received_company_chat_messages,
+    class_name: CompanyChatMessage.name, dependent: :destroy,
+    foreign_key: "receiver_id"
+  has_many :sent_company_chat_messages,
+    class_name: CompanyChatMessage.name, dependent: :destroy,
+    foreign_key: "sender_id"
+  has_many :company_chat_rooms, dependent: :destroy
+  has_many :sent_company_chat_messages, class_name: CompanyChatMessage.name,
+    as: :senderable, dependent: :destroy
+  has_many :received_company_chat_messages, class_name: CompanyChatMessage.name,
+    as: :receiverable, dependent: :destroy
 
   accepts_nested_attributes_for :info_user
 

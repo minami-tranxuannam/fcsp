@@ -1,0 +1,56 @@
+<div class="employer-messages-container">
+  <div class="employer-chat-rooms-wrapper">
+    <div class="chat-rooms-filter-dropdows">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="chat-rooms-search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search message">
+      </div>
+    </div>
+    <div class="chat-rooms-items-wrapper">
+      <ul class="chat-rooms-items">
+        <%= render partial: "company_chat_room", locals: {rooms: @messages_object.company_rooms} %>
+      </ul>
+    </div>
+  </div>
+  <div class="employer-chat-messages-wrapper">
+    <div class="candidate-info-wrapper">
+      <div class="candidate-avatar">
+        <img src="https://d2v9k5u4v94ulw.cloudfront.net/small_light(dw=80,dh=80,da=s,ds=s,cw=80,ch=80,cc=FFFFFF)/assets/images/1592131/original/5d1bb86b-7042-4f82-a9c1-077917b5576c.jpeg?1492151959" alt="" height="50px" class="img-circle">
+      </div>
+      <div class="candidate-info">
+        <a href="javascript:;">
+          <span class="candidate-name"><%= @messages_object.current_room.user_name %></span>
+        </a>
+        <p class="candidate-title">
+          <%= " Age #{@messages_object.current_room.user.info_user.age}" %>
+        </p>
+      </div>
+    </div>
+    <ul class="employer-chat-messages-items user-message-items">
+      <%= render partial: "company_chat_message", locals: {messages: @messages_object.messages} %>
+    </ul>
+    <div class="employer-chat-form">
+      <%= render partial: "company_chat_message_form",
+        locals: {new_message: @new_message} %>
+    </div>
+  </div>
+</div>

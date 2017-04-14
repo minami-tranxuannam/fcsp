@@ -1,0 +1,6 @@
+<%= simple_form_for @messages_object.new_message, remote: true do |f| %>
+  <%= f.text_area :content, rows: 4, cols: 78 %>
+  <%= f.hidden_field :company_chat_room_id %>
+  <%= f.hidden_field :senderable_id, value: @messages_object.company.id %>
+  <%= submit_tag "Reply", class: "button button-3d button-large button-rounded button-green" %>
+<% end %>

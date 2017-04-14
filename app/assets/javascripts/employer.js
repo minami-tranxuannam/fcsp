@@ -25,3 +25,5 @@
 //= require jqvmap/maps/jquery.vmap.world
 //= require jqvmap/maps/jquery.vmap.usa
 //= require_tree ./gentelella
+//= require cable
+//= require company_chat_messages
