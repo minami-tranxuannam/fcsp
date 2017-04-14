@@ -14,6 +14,12 @@ class Company < ApplicationRecord
   has_many :industries, through: :company_industries
   has_many :team_introductions, as: :team_target
   has_many :groups
+  has_many :company_chat_rooms, dependent: :destroy
+  has_many :sent_company_chat_messages, class_name: CompanyChatMessage.name,
+    as: :senderable, dependent: :destroy
+  has_many :received_company_chat_messages, class_name: CompanyChatMessage.name,
+    as: :receiverable, dependent: :destroy
+  has_many :groups, dependent: :destroy
 
   ATTRIBUTES = [:name, :website, :introduction, :founder, :country,
     :company_size, :founder_on, addresses_attributes: [:id, :address,

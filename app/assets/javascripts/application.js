@@ -29,3 +29,5 @@
 //= require social-share-button
 //= require friend_ships
 //= require friend_ship
+//= require cable
+//= require company_chat_messages

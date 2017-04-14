@@ -96,6 +96,31 @@ ActiveRecord::Schema.define(version: 20170421044233) do
     t.index ["website"], name: "index_companies_on_website", using: :btree
   end
 
+  create_table "company_chat_messages", force: :cascade do |t|
+    t.integer  "company_chat_room_id"
+    t.text     "content"
+    t.integer  "senderable_id"
+    t.string   "senderable_type"
+    t.integer  "receiverable_id"
+    t.string   "receiverable_type"
+    t.boolean  "read",                 default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["company_chat_room_id"], name: "index_company_chat_messages_on_company_chat_room_id", using: :btree
+  end
+
+  create_table "company_chat_rooms", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id", "user_id", "job_id"], name: "index_company_chat_rooms_on_company_id_and_user_id_and_job_id", unique: true, using: :btree
+    t.index ["company_id"], name: "index_company_chat_rooms_on_company_id", using: :btree
+    t.index ["job_id"], name: "index_company_chat_rooms_on_job_id", using: :btree
+    t.index ["user_id"], name: "index_company_chat_rooms_on_user_id", using: :btree
+  end
+
   create_table "company_industries", force: :cascade do |t|
     t.integer  "company_id"
     t.integer  "industry_id"
@@ -451,6 +476,7 @@ ActiveRecord::Schema.define(version: 20170421044233) do
     t.text     "introduce"
     t.string   "quote"
     t.string   "ambition"
+    t.date     "birthday"
     t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -628,6 +654,10 @@ ActiveRecord::Schema.define(version: 20170421044233) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "company_chat_messages", "company_chat_rooms"
+  add_foreign_key "company_chat_rooms", "companies"
+  add_foreign_key "company_chat_rooms", "jobs"
+  add_foreign_key "company_chat_rooms", "users"
   add_foreign_key "company_industries", "companies"
   add_foreign_key "company_industries", "industries"
   add_foreign_key "education_comments", "users"

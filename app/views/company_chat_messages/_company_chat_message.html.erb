@@ -1,0 +1,26 @@
+<li class="user-message-item">
+  <div class="user-message-sender">
+    <div class="user-message-sender-avatar">
+      <%= load_senderable_avatar company_chat_message.senderable,
+        class: "img-circle img-h-50" %>
+    </div>
+    <div class="user-message-info-wrapper">
+      <div class="user-message-sender-info">
+        <div class="user-message-sender-name">
+          <%= link_to company_chat_message.senderable.name,
+            user_path(company_chat_message.senderable) %>
+        </div>
+        <div class="user-message-sender-date">
+          <%= I18n.localize company_chat_message.created_at,
+            format: "%m-%y-%y" %>
+        </div>
+      </div>
+      <div class="user-message-sender-company-name">
+        Framgia
+      </div>
+    </div>
+  </div>
+  <p class="user-message-item-content">
+    <%= company_chat_message.content %>
+  </p>
+</li>

@@ -37,14 +37,14 @@ namespace :db do
         "le.quang.canh@sframgia.com": "Le Quang Anh",
         "nguyen.ngoc.thinh@framgia.com": "Nguyen Ngoc Thinh",
         "tran.xuan.nam@framgia.com": "Tran Xuan Nam",
-        "user@gmail.com": "User",
         "ttkt1994@gmail.com": "User"
       }
 
       users.each do |email, name|
         user = User.create! name: name, email: email, password:
           123456, education_status: rand(0..1)
-        InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph
+        InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
+        birthday: (Time.now - 24.years)
       end
 
       edu_admin = User.create! name: "Education admin",
@@ -58,6 +58,40 @@ namespace :db do
         password: "123456",
         role: 1
       InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph
+
+      User.create! name: "user",
+        email: "user@gmail.com",
+        password: "123456"
+
+      puts "Create positions"
+      positions = ["Manager", "Director", "Admin"]
+      positions.each do |position|
+        company_id = 1
+        Position.create! name: position,
+          company_id: company_id
+      end
+
+      puts "Create groups"
+      groups = ["Education", "HR", "BO"]
+      groups.each do |group|
+        Company.all.each do |company|
+          description = FFaker::Lorem.sentence
+          Group.create! name: group,
+            company_id: company.id,
+            description: description
+        end
+      end
+
+      puts "Create user groups"
+      UserGroup.create! user_id: 12, position_id: 3, group_id: 2,
+        is_default_group: true
+
+      puts "Create company permission"
+      models = ["Company", "Job", "Candidate", "TeamIntroduction"]
+      models.each do |model|
+        Permission.create! entry: model, group_id: 2,
+          optional: {create: true, read: true, update: true, destroy: true}
+      end
 
       puts "Create jobs"
       2.times do |i|
@@ -170,6 +204,17 @@ namespace :db do
           friend_id: 1, status: 0
         Friendship.create! friendable_type: User.name, friendable_id: 1,
           friend_id: user_id, status: 1
+      end
+      puts "Create company chat rooms"
+      User.all.each do |user|
+        CompanyChatRoom.create! job: Job.first, company_id: Company.first.id, user_id: user.id
+      end
+
+      puts "Create company chat messages"
+
+      CompanyChatRoom.all.each do |room|
+        room.messages.create! receiverable: room.user,
+          senderable: room.company, content: FFaker::Lorem.sentence
       end
 
       puts "Create Education informations"

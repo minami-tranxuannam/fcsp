@@ -1,0 +1,20 @@
+<% rooms.each do |room| %>
+  <li>
+    <div class="user-messages-index-item" data-room="<%= room.id %>">
+      <div class="company-profile">
+        <img src="https://dubpy8abnqmkw.cloudfront.net/images/anonymous/anonymous-company.png" alt="" height="50px">
+      </div>
+      <div class="user-message-info">
+        <div class="user-message-info-heading">
+          <p class="user-message-company-name"><%= room.company_name %></p>
+          <p class="user-message-date"><%= time_ago_in_words room.messages.last.created_at %></p>
+        </div>
+        <div class="user-message-lastest-message">
+          <p><%= room.messages.last.content %></p>
+        </div>
+        <%= link_to room.job.title, job_path(room.job),
+          class: "chat-rooms-items-job-title" %>
+      </div>
+    </div>
+  </li>
+<% end %>

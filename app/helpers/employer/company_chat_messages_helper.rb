@@ -1,0 +1,2 @@
+module Employer::CompanyChatMessagesHelper
+end

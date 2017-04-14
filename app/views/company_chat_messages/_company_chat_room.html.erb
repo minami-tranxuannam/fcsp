@@ -1,0 +1,17 @@
+<li id="<%= room.id %>">
+  <div class="user-messages-index-item" data-room="<%= room.id %>">
+    <div class="company-profile">
+      <%= load_image room.company %>
+    </div>
+    <div class="<%= room.has_new_message? ? "user-message-info user-message-info-new" : "user-message-info" %>">
+      <div class="user-message-info-heading">
+        <p class="user-message-company-name"><%= room.company_name %></p>
+        <p class="user-message-date"><%= time_ago_in_words room.messages.last.created_at %></p>
+      </div>
+      <div class="user-message-lastest-message">
+        <p><%= room.messages.last.content %></p>
+      </div>
+      <%= link_to room.job.title, job_path(room.job) %>
+    </div>
+  </div>
+</li>

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       resources :dashboards, only: :index
       resources :team_introductions, only: [:create, :new]
       resources :candidates, only: :index
+      resources :company_chat_messages, only: [:index, :new]
     end
   end
 
@@ -64,4 +65,6 @@ Rails.application.routes.draw do
   resource :user_covers, only: :update
   resources :friend_ships, only: [:create, :destroy, :update]
   resources :info_users, only: :update
+  resources :company_chat_messages
+  mount ActionCable.server => '/cable'
 end

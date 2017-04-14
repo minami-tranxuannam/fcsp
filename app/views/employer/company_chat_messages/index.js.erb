@@ -1,0 +1,5 @@
+<% if @messages_object.search_room_result.size > 0 %>
+  $('ul.chat-rooms-items').html('<%= j render partial: "company_chat_room", locals: {rooms: @messages_object.search_room_result} %>')
+<% else %>
+  $('ul.chat-rooms-items').html('<p class="text-center"><%= "You have no messages." %></p>')
+<% end %>

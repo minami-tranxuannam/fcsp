@@ -1,0 +1,42 @@
+<div class="user-messages-container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row message-head">
+      <div class="user-message-avatar">
+        <%= load_user_avatar current_user, class: "img-h-80" %>
+      </div>
+      <p>Messages</p>
+    </div>
+    <div class="user-message-wapper-container">
+      <aside class="col-md-5 user-messages-wrapper">
+        <div class="user-messages-index-wrapper">
+          <div class="user-messages-menu">
+            <a href="javascript:;">Postings</a>
+            <a href="javscript:;">Archived Messages</a>
+          </div>
+          <ul class="user-message-index-items">
+            <% @messages_object.user_rooms.each do |room| %>
+              <%= render partial: "company_chat_room", locals: {room: room} %>
+            <% end %>
+          </ul>
+        </div>
+      </aside>
+      <div class="col-md-7 user-message-new-wrapper">
+        <div class="user-message-new-title">
+          <a href="javascript:;">Join us now</a>
+        </div>
+        <div class="user-messages-detail-wrapper">
+          <div class="user-message-items-wrapper">
+            <ul class="user-message-items">
+              <% 10.times do %>
+                <%= render @messages_object.messages %>
+              <% end %>
+            </ul>
+          </div>
+          <div class="user-message-new-form">
+            <%= render partial: "company_chat_message_form", locals: {new_message: @messages_object.new_message} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
