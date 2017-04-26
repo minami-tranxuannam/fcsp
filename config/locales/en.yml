@@ -514,3 +514,10 @@ en:
       subject: "You have a friend request from %{name}"
       hi: "Hi %{name},"
       end: "This email is sent automatically from FCSP, Please do not reply!"
+  employer:
+    layouts:
+      sidebar:
+        management: "Management"
+    jobs:
+      index:
+        job_recruitment: "Job Recruitment"

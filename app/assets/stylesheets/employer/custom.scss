@@ -1,7 +1,5 @@
 @import 'variables/color';
 
-// -----Custom Header for Dashboard----
-
 .container-margin {
   margin-left: 0 !important;
 }
@@ -130,4 +128,80 @@
   margin: 10px;
   padding: 5px;
   width: 150px;
+}
+
+.main-content {
+  margin-top: 30px;
+}
+
+.sidebar-nav {
+  margin-top: 100px;
+}
+
+.navbar-default-custom {
+  background-color: $white !important;
+  border: none !important;
+}
+
+.widget-links {
+  border-bottom: 1px solid $gray87;
+}
+
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    max-height: none;
+    padding: 0;
+  }
+
+  .navbar-default-custom {
+    background-color: $white !important;
+    border-right: 1px solid $gray87 !important;
+  }
+
+  .sidebar-nav .navbar ul {
+    display: block;
+    float: none;
+  }
+
+  .sidebar-nav .navbar li {
+    display: block;
+    float: none;
+  }
+
+  .sidebar-nav .navbar a {
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+
+  .main-content {
+    margin-top: 100px;
+  }
+}
+
+.stretched-custom {
+  overflow: auto !important;
+}
+
+@media (max-width: 992px){
+  .container-custom {
+    margin: 0 !important;
+  }
+
+  .custom-primary-menu {
+    background-color: $light-sea-green;
+    margin-top: -40px;
+    width: 100%;
+
+    .mega-menu {
+      text-align: center !important;
+    }
+  }
+
+  .custom-primary-menu .current > a {
+    background-color: $transparent !important;
+  }
+
+  .logo-custom a {
+    width: 50px;
+  }
 }

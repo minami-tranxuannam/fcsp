@@ -367,10 +367,10 @@
   .job-row {
     a {
       color: $black;
-      
-      &:hover {
-        color: $blue-link-hover;
-      }
+    }
+
+    a:hover {
+      color: $blue-link-hover;
     }
 
     img {

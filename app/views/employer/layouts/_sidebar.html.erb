@@ -1,60 +1,66 @@
-<div class="sidebar nobottommargin clearfix" data-spy="affix">
-  <div class="sidebar-widgets-wrap">
-    <div class="sidebar-widgets-inner">
-      <div class="widget widget_links clearfix">
-        <h4><%= t ".menu" %></h4>
-        <ul>
-          <li>
-            <div>
-              <i class="icon-tasks"></i>
-              <%= link_to t(".manage_postings"),
-                employer_company_jobs_path(@company) %>
-            </div>
-          </li>
-          <li>
-            <div>
-              <i class="icon-group" aria-hidden="true"></i>
-              <%= link_to t(".candidates"),
-                employer_company_candidates_path(@company) %>
-            </div>
-          </li>
-          <li>
-            <div>
-              <i class="icon-comments"></i>
-              <%= link_to t(".messages"), "#" %>
-            </div>
-          </li>
-          <li>
-            <div>
-              <i class="icon-unlock-alt"></i>
-              <%= link_to t(".recommendations"), "#" %>
-            </div>
-          </li>
-          <li>
-            <div>
-              <a role="button" data-toggle="collapse" href="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                <%= t ".view_mores" %> <i class="icon-caret-down"></i>
-              </a>
-              <span class="collapse" id="collapseExample">
+<div class="col-sm-3 col-md-3">
+  <div class="sidebar-nav">
+    <div class="navbar navbar-default navbar-default-custom" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target=".sidebar-navbar-collapse">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="visible-xs navbar-brand"><%= t ".management" %></span>
+      </div>
+      <div class="navbar-collapse collapse sidebar-navbar-collapse">
+        <div class="widget widget_links widget-links clearfix">
+          <h4><%= t ".menu" %></h4>
+          <ul>
+            <li>
+              <div>
+                <i class="icon-tasks"></i>
+                <%= link_to t(".manage_postings"),
+                  employer_company_jobs_path(@company) %>
+              </div>
+            </li>
+            <li>
+              <div>
+                <i class="icon-group" aria-hidden="true"></i>
+                <%= link_to t(".candidates"),
+                  employer_company_candidates_path(@company) %>
+              </div>
+            </li>
+            <li>
+              <div>
+                <i class="icon-comments"></i>
+                <%= link_to t(".messages"), "#" %>
+              </div>
+            </li>
+            <li>
+              <div>
+                <i class="icon-unlock-alt"></i>
+                <%= link_to t(".recommendations"), "#" %>
+              </div>
+            </li>
+            <li>
+              <div>
                 <%= link_to t(".company_info"),
                   edit_employer_company_path(@company) %>
-              </span>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="widget widget_links clearfix">
-        <h4><%= t ".current_plans" %></h4>
-        <h5><%= t ".trial" %></h5>
-        <p><%= t ".view_candidates" %></p>
-      </div>
-      <div class="widget widget_links clearfix">
-        <h4><%= t ".contact" %></h4>
-        <ul>
-          <li><%= link_to t(".mail"), "#" %></li>
-          <li><%= link_to t(".help"), "#" %></li>
-        </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="widget widget_links widget-links clearfix">
+          <h4><%= t ".current_plans" %></h4>
+          <h5><%= t ".trial" %></h5>
+          <p><%= t ".view_candidates" %></p>
+        </div>
+        <div class="widget widget_links widget-links clearfix">
+          <h4><%= t ".contact" %></h4>
+          <ul>
+            <li><%= link_to t(".mail"), "#" %></li>
+            <li><%= link_to t(".help"), "#" %></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

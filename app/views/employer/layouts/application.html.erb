@@ -5,19 +5,15 @@
     <%= render "employer/layouts/head" %>
     <%= render "layouts/shim" %>
   </head>
-  <body class="stretched custom-fixed" data-company="<%= @company.id %>">
+  <body class="stretched stretched-custom" data-company="<%= @company.id %>">
     <div id="wrapper" class="clearfix">
       <%= render "employer/layouts/header" %>
-      <div class="row">
-        <%= render "shared/flash" %>
-
-        <%= render "employer/layouts/sidebar" %>
-        <div class="main-employer"><%= yield %></div>
-      </div>
-
+      <%= render "shared/flash" %>
+      <%= render "employer/layouts/sidebar" %>
+      <div class="col-sm-9 col-md-9 main-content"><%= yield %></div>
     </div>
-
     <div id="gotoTop" class="icon-angle-up"></div>
     <%= javascript_include_tag "template" %>
   </body>
 </html>
+</div>
