@@ -1,5 +1,3 @@
-
-
 .message-head {
   padding-top: 30px;
   display: flex;
@@ -93,7 +91,6 @@
     img {
       width: 50px !important;
       height: 50px !important;
-
     }
   }
   .user-message-sender-info {
@@ -114,5 +111,20 @@
     textarea {
       width: 100%;
     }
+  }
+}
+
+.img-h-50 {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.user-message-info-new {
+  .user-message-lastest-message p {
+    font-weight: bold;
+  }
+
+  .user-message-date {
+    color: #337ab7;
   }
 }

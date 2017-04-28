@@ -1,24 +1,16 @@
 <div class="employer-messages-container">
   <div class="employer-chat-rooms-wrapper">
     <div class="chat-rooms-filter-dropdows">
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
+      <select class="select2_single form-control">
+        <option value="All">Alaska</option>
+        <option value="HI">Hawaii</option>
+        <option value="CA">California</option>
+      </select>
+      <select class="select2_single form-control">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+        <option value="CA">California</option>
+      </select>
     </div>
     <div class="chat-rooms-search">
       <div class="input-group">
@@ -53,4 +45,8 @@
         locals: {new_message: @new_message} %>
     </div>
   </div>
+</div>
+<div class="hidden avatar-holder">
+  <%= load_senderable_avatar @messages_object.current_room.company,
+    class: "img-circle img-h-50" %>
 </div>

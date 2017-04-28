@@ -1,7 +1,8 @@
 <li class="user-message-item">
   <div class="user-message-sender">
     <div class="user-message-sender-avatar">
-      <%= load_user_avatar current_user, class: "img-circle img-h-50" %>
+      <%= load_senderable_avatar company_chat_message.senderable,
+        class: "img-circle img-h-50" %>
     </div>
     <div class="user-message-info-wrapper">
       <div class="user-message-sender-info">
@@ -13,9 +14,6 @@
           <%= I18n.localize company_chat_message.created_at,
             format: "%m-%y-%y" %>
         </div>
-      </div>
-      <div class="user-message-sender-company-name">
-        Framgia
       </div>
     </div>
   </div>

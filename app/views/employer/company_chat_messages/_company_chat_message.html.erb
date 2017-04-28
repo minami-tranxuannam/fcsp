@@ -2,7 +2,8 @@
   <li class="user-message-item">
     <div class="user-message-sender">
       <div class="user-message-sender-avatar">
-        <img src="https://d2v9k5u4v94ulw.cloudfront.net/small_light(dw=80,dh=80,da=s,ds=s,cw=80,ch=80,cc=FFFFFF)/assets/images/1592131/original/5d1bb86b-7042-4f82-a9c1-077917b5576c.jpeg?1492151959" alt="" height="50px" class="img-circle">
+        <%= load_senderable_avatar message.senderable,
+          class: "img-circle img-h-50" %>
       </div>
       <div class="user-message-info-wrapper">
         <div class="user-message-sender-info">
@@ -13,11 +14,8 @@
           </a>
           <div class="user-message-sender-date">
             <%= I18n.localize message.created_at,
-              format: "%m-%y-%y" %>
+              format: "%m-%d-%y" %>
           </div>
-        </div>
-        <div class="user-message-sender-company-name">
-          Framgia
         </div>
       </div>
     </div>
