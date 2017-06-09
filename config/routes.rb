@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chat_rooms/index'
+
   mount Ckeditor::Engine => "/ckeditor"
   devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks}
   root "pages#index"
@@ -47,6 +49,7 @@ Rails.application.routes.draw do
       resources :team_introductions, only: [:create, :new]
       resources :candidates, only: [:index, :update]
       resources :articles, except: :show
+      resources :chat_rooms
     end
   end
 
@@ -85,4 +88,5 @@ Rails.application.routes.draw do
   resources :user_languages, except: :show
   resources :user_social_networks, only: :create
   resource :user_social_networks, only: :update
+  resources :chat_rooms
 end

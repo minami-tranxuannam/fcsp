@@ -1,0 +1,105 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="row col-md-4 col-xs-5">
+    <div class="x_content">
+      <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+        <div class="room-items-head">
+          <ul class="nav nav-pills" role="tablist">
+            <li role="presentation"><a href="#">Regular link</a>
+            </li>
+            <li role="presentation" class="dropdown">
+              <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                          Dropdown
+                          <span class="caret"></span>
+                      </a>
+              <ul id="menu6" class="dropdown-menu animated fadeInDown" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+                </li>
+              </ul>
+            </li>
+            <li role="presentation" class="dropdown">
+              <a id="drop5" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                          Dropdown
+                          <span class="caret"></span>
+                      </a>
+              <ul id="menu2" class="dropdown-menu animated fadeInDown" role="menu" aria-labelledby="drop5">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+                </li>
+              </ul>
+            </li>
+            <li role="presentation" class="dropdown">
+              <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                          Dropdown
+                          <span class="caret"></span>
+                      </a>
+              <ul id="menu3" class="dropdown-menu animated fadeInDown" role="menu" aria-labelledby="drop6">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+          </div>
+        </div>
+        <ul class="col-md-12 col-sm-12 col-xs-12 room-items">
+          <% 10.times do %>
+            <%= render "chat_room" %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row col-md-8 col-xs-7">
+    <div class="x_content">
+      <div class="message-items-head">
+        <div class="message-items-avatar">
+          <img src="https://dubpy8abnqmkw.cloudfront.net/images/anonymous/anonymous.png" alt="" role="presentation">
+        </div>
+        <div class="message-item-candidate-name-info">
+          <div class="message-item-candidate-name">
+            Tran Xuan Nam
+          </div>
+          <div class="message-item-candidate-info">
+            Age 24 / Engineer / Programmer / DUT
+          </div>
+        </div>
+      </div>
+      <ul class="message-items">
+        <% 8.times do %>
+          <%= render "message" %>
+        <% end %>
+      </ul>
+      <div class="send-message">
+        <div class="message-box">
+          <textarea name="name" rows="4" cols="150" placeholder="Enter message..."></textarea>
+        </div>
+        <div class="send-button">
+          <button class="btn btn-success btn-lg">
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

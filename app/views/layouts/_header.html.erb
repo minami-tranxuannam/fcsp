@@ -45,6 +45,7 @@
       <ul class="nav navbar-nav text-uppercase">
         <li><%= link_to t(".home"), root_path, class: "link-menu-header" %></li>
         <li><%= link_to t(".jobs"), jobs_path, class: "link-menu-header" %></li>
+        <li><%= link_to t(".messages"), chat_rooms_path, class: "link-menu-header" %></li>
         <% if current_user.present? %>
           <% if current_user.admin? %>
             <li>

@@ -4,6 +4,12 @@ class Candidate < ApplicationRecord
 
   has_one :avatar, through: :user, class_name: Image.name, dependent: :destroy
 
+  has_many :sent_mesages, as: :senderable, class_name: Message.name,
+    dependent: :destroy
+  has_many :received_messages, as: :receiverable, class_name: Message.name,
+    dependent: :destroy
+  has_many :chat_rooms, dependent: :destroy
+
   enum interested_in: [:have_a_chat, :work_together, :opportunity]
   enum process: [:apply, :fail_test, :joined, :pass_test, :wait_test]
 

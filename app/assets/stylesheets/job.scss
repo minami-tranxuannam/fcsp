@@ -3,9 +3,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 // elements
+html {
+  height: 100%; 
+}
+
 body {
   background: $bg-job;
   font-family: roboto;
+  position: relative;
 }
 
 span,
@@ -492,7 +497,10 @@ article {
 .footer-widget-section {
   background: $base-tone;
   color: $white;
-
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .footer-copy {
