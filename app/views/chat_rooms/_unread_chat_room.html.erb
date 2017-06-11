@@ -1,0 +1,16 @@
+<% chat_rooms.each do |chat_room| %>
+  <li>
+    <%= link_to chat_room_path(chat_room) do %>
+      <div class="unread_chat_rooms-title">
+        <p>You have a message from
+          <span>
+            <b><%= chat_room.employee.company_name %></b>
+          <span>
+        </p>
+      </div>
+      <div class="unread_chat_rooms_job">
+        <b><%= chat_room.candidate.job_title %></b>
+      </div>
+    <% end %>
+  </li>
+<% end %>

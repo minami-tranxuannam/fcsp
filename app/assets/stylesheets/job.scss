@@ -581,9 +581,12 @@ article {
     border-top: 5px solid $base-tone;
     left: -226px;
     max-height: 300px;
-    padding: 7px;
     top: 40px;
     width: 300px;
+
+    h4 {
+      padding-left: 7px;
+    }
   }
 
   .show-request {
@@ -638,7 +641,6 @@ article {
     border-top: 5px solid $base-tone;
     left: -226px;
     max-height: 300px;
-    padding: 7px;
     top: 40px;
     width: 300px;
   }
@@ -919,5 +921,17 @@ article {
     position: absolute;
     right: 10px;
     top: 10px;
+  }
+}
+
+.user-notifications {
+  li {
+    border-bottom: 1px solid #E45924;
+    width: 100%;
+    padding: 7px;
+    cursor: pointer;
+    &:hover {
+      background-color: #F2F2F2;
+    }
   }
 }

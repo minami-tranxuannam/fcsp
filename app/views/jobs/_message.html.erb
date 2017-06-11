@@ -1,14 +1,18 @@
 <span class="dropdown message-show">
   <button class="dropdown-toggle" type="button" data-toggle="dropdown">
     <%= icon "comments" %>
-    <span class="badge badge-pill badge-default">
-      5
+    <span class="badge badge-pill badge-default user-notifications-badge" data-user-id="<%= current_user.id %>">
+      <%= ChatRoom.unread.length %>
     </span>
   </button>
   <div class="dropdown-menu friend-ship-box">
     <h4><%= t ".message" %></h4>
     <hr>
     <div class="show-request">
+      <ul class="user-notifications">
+        <%= render partial: "chat_rooms/unread_chat_room",
+          locals: {chat_rooms: ChatRoom.unread} %>
+      </ul>
     </div>
   </div>
 </span>

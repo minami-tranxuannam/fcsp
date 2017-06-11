@@ -185,6 +185,14 @@ namespace :db do
           friend_id: user_id, status: 1
       end
 
+      puts "Create chat rooms"
+      ChatRoom.create! employee: Employee.first, candidate: Candidate.find(181)
+
+      puts "Create messages"
+      room = ChatRoom.first
+      room.messages.create! content: FFaker::Lorem.sentence,
+        senderable: room.employee, receiverable: room.candidate
+
       puts "Create Education informations"
       Rake::Task["education:education_seeding"].invoke
 

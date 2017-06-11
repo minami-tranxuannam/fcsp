@@ -40,3 +40,4 @@
 //= require change_avatar_company
 //= require ckeditor/init
 //= require certificates
+//= require cable

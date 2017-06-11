@@ -58,11 +58,13 @@ class User < ApplicationRecord
   has_one :group, class_name: Group.name, through: :user_group, source: :group
   has_one :company, through: :user_group, source: :company,
     class_name: Company.name
+  has_one :employee, dependent: :destroy
   has_many :user_links, dependent: :destroy
   has_many :posts, as: :postable
   has_many :social_networks, as: :owner, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :chat_rooms, through: :candidates
 
   accepts_nested_attributes_for :info_user
 

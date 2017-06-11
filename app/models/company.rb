@@ -20,6 +20,7 @@ class Company < ApplicationRecord
     primary_key: :cover_image_id
   has_many :posts, as: :postable
   has_many :social_networks, as: :owner, dependent: :destroy
+  has_many :chat_rooms, through: :employees
 
   after_create :create_organization
 

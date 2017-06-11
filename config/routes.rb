@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       resources :team_introductions, only: [:create, :new]
       resources :candidates, only: [:index, :update]
       resources :articles, except: :show
+      resources :chat_rooms
     end
   end
 
@@ -89,4 +90,8 @@ Rails.application.routes.draw do
   resources :user_languages
   resources :organizations, only: :show
   resources :articles, only: :show
+  resources :chat_rooms
+  resources :messages
+
+  mount ActionCable.server => "/cable"
 end

@@ -1,0 +1,77 @@
+<div class="row col-md-4">
+  <div class="x_content">
+    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Home</a>
+        </li>
+        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Profile</a>
+        </li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+          <div class="room-items-head">
+            <ul class="nav nav-pills" role="tablist">
+              <li role="presentation"><a href="#">Regular link</a>
+              </li>
+              <li role="presentation" class="dropdown">
+                <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                            Dropdown
+                            <span class="caret"></span>
+                        </a>
+                <ul id="menu6" class="dropdown-menu animated fadeInDown" role="menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+                  </li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+                  </li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+                  </li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+          <ul class="col-md-12 col-sm-12 col-xs-12 room-items">
+            <% 10.times do %>
+              <%= render @chat_rooms %>
+            <% end %>
+          </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+          <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+            booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row col-md-8">
+  <div class="x_content">
+    <div class="message-items-head">
+      <div class="message-items-avatar">
+        <img src="https://dubpy8abnqmkw.cloudfront.net/images/anonymous/anonymous.png" alt="" role="presentation">
+      </div>
+      <div class="message-item-candidate-name-info">
+        <div class="message-item-candidate-name">
+          Tran Xuan Nam
+        </div>
+        <div class="message-item-candidate-info">
+          Age 24 / Engineer / Programmer / DUT
+        </div>
+      </div>
+    </div>
+    <ul class="message-items" data-chat-room-id="<%= @chat_room.id %>">
+      <%= render @messages %>
+    </ul>
+    <div class="send-message">
+      <%= simple_form_for @message, html: {class: "new-message-form"} do |f| %>
+        <%= f.input :content, as: :text, label: false %>
+        <%= f.submit "Send", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

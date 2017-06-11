@@ -1,0 +1,20 @@
+<li class="room-item <%= chat_room.read? ? "" : "has-unread-message" %>"
+    data-chat-room-id="<%= chat_room.id %>">
+  <div class="room-item-head">
+    <div class="room-item-head-avatar">
+      <img src="https://dubpy8abnqmkw.cloudfront.net/images/anonymous/anonymous.png" alt="" role="presentation">
+    </div>
+    <div class="room-item-header-name-and-message">
+      <div class="room-item-header-name">
+        <%= link_to chat_room.employee.user_name, "#" %>
+        <p><%= time_ago_in_words chat_room.messages.last.created_at %></p>
+      </div>
+      <div class="room-item-header-message">
+        <p class="hidden-xs"><%= chat_room.messages.last.content %></p>
+      </div>
+    </div>
+  </div>
+  <div class="room-item-job-title">
+    <%= link_to "Join us now!", "#" %>
+  </div>
+</li>

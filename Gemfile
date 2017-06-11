@@ -56,6 +56,7 @@ gem "ckeditor"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "omniauth-hrsystem",
   git: "https://github.com/framgia-education/omniauth-hrsystem.git"
+gem "react-rails"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 3.0"
 # Use ActiveModel has_secure_password

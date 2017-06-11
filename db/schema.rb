@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606014645) do
+ActiveRecord::Schema.define(version: 20170608032442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 20170606014645) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_certificates_on_user_id", using: :btree
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "candidate_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["candidate_id"], name: "index_chat_rooms_on_candidate_id", using: :btree
+    t.index ["employee_id"], name: "index_chat_rooms_on_employee_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -572,6 +581,18 @@ ActiveRecord::Schema.define(version: 20170606014645) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "content"
+    t.string   "senderable_type"
+    t.integer  "senderable_id"
+    t.string   "receiverable_type"
+    t.integer  "receiverable_id"
+    t.integer  "chat_room_id"
+    t.boolean  "read",              default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.integer  "org_type",   default: 1
     t.string   "name"
@@ -804,6 +825,8 @@ ActiveRecord::Schema.define(version: 20170606014645) do
 
   add_foreign_key "awards", "users"
   add_foreign_key "certificates", "users"
+  add_foreign_key "chat_rooms", "candidates"
+  add_foreign_key "chat_rooms", "employees"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "company_industries", "companies"
